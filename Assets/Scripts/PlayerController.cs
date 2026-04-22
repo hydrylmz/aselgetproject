@@ -7,8 +7,9 @@ public class PlayerController : MonoBehaviour
     private float moveX;
     private float moveY;
     public int speed = 5;
+    [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Camera screenSpaceCamera;
-
+    [SerializeField] private Canvas canvas;
     private void Update()
     {
         moveX = Input.GetAxis("Horizontal");
@@ -28,6 +29,27 @@ public class PlayerController : MonoBehaviour
         {
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
             transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            MouseClicked();
+        }
+    }
+
+    private void MouseClicked()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 worldPos = screenSpaceCamera.ScreenToWorldPoint(
+            new Vector3(mousePos.x, mousePos.y, Mathf.Abs(screenSpaceCamera.transform.position.z))
+        );
+        Vector3 direction = worldPos - transform.position;
+        direction.z = 0f;
+        if (direction != Vector3.zero)
+        {
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg + 90f;
+            Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
+            Instantiate(bulletPrefab, transform.position, rotation, canvas.transform);
         }
     }
 }
