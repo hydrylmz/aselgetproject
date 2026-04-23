@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8343237046077785016}
   - component: {fileID: 77235141040292343}
   - component: {fileID: 2566679128313409433}
+  - component: {fileID: 9201496696052606791}
   m_Layer: 5
   m_Name: Box
   m_TagString: Untagged
@@ -121,3 +122,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
+--- !u!114 &9201496696052606791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5392838233934095972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0750fa950f9bf4d9a50883c5c27fa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gemPrefab: {fileID: 2017279151505470190, guid: 49700f0ac9c99414b84f24a2510de5e9, type: 3}
